@@ -13,12 +13,12 @@ PYTHONPATH=$PYTHONPATH:$EXECDIR
 HOME_MEDIA="/home/jporter/nodule-seg/media_root"
 INIT_IMG_DIR=$HOME_MEDIA"/init"
 
-NSEEDS=500
-INIT_IMG="0c2b8406cd8ca33af1130c3c91cfb70b2797df7a.nii"
+
+INIT_IMG=$1
 
 python $EXECDIR/masterseg.py --nseeds $NSEEDS $INIT_IMG_DIR/$INIT_IMG --media_root $RUNDIR/media_root/ --log $RUNDIR/logs/
 
-WRITEBACK_DIR=$HOME_MEDIA/latest_run/
+WRITEBACK_DIR=$HOME_MEDIA/$2/
 mkdir -p $WRITEBACK_DIR/ 
 cp -ru $RUNDIR/* $WRITEBACK_DIR/
 
